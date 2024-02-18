@@ -16,7 +16,7 @@ a {
     color: black !important;
 }
 
-/* navbar */
+/* Start of Navbar */
 
 .nav-link {
     font-size: 14pt !important;
@@ -42,7 +42,8 @@ a {
     width: 100%;
 }
 
-/* footer */
+/* End of Navbar*/
+/* Start of Footer */
 
 footer a {
     color: white !important;
@@ -53,8 +54,9 @@ footer a:hover{
     color:lime;
 }
 
+/* End of Footer */
+/* Start of Book-Store */
 
-/* book-store */
 li.list-group-item>a {
     color: black !important;
     text-decoration: none;
@@ -63,6 +65,10 @@ li.list-group-item>a {
 .card {
     white-space: normal;
     min-width: 200px;
+}
+
+.bookClass:hover{
+    background-color: #f6f6f6;
 }
 
 .mostSelledBooks {
@@ -79,4 +85,9 @@ li.list-group-item>a {
     }
 }
 
-/* book-collection */
+/* End of Book-Store */
+/* Start of Book-Collection */
+
+
+
+/* End of Book-Collection */
