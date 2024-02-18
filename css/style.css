@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800 &family=Open+Sans:wght@300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form input{
+    margin-right: 10px !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+/* navbar */
+
+.nav-link {
+    font-size: 14pt !important;
+    position: relative;
+    text-decoration: none;
+    color: #f3efef !important;
+    margin-right: 20px;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f1e8e8;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+/* footer */
+
+footer a {
+    color: white !important;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color:lime;
+}
+
+
+/* book-store */
+li.list-group-item>a {
+    color: black !important;
+    text-decoration: none;
+}
+
+.card {
+    white-space: normal;
+    min-width: 200px;
+}
+
+.mostSelledBooks {
+    padding-left: 5px;
+}
+
+.mostSelledBooks:hover{
+    background-color: rgb(181, 189, 195) !important;
+}
+
+@media only screen and (min-width: 1200px) {
+    select.form-select {
+      visibility: hidden !important;
+    }
+}
+
+/* book-collection */
