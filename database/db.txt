@@ -1,0 +1,179 @@
+-- Create Author Table
+CREATE TABLE author (
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    birth_year YEAR,
+    death_year YEAR,
+    bio TEXT,
+    image VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by INT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updated_by INT,
+    deleted_at DATETIME DEFAULT NULL,
+    deleted_by INT,
+    INDEX(created_by),
+    INDEX(updated_by),
+    INDEX(deleted_by)
+);
+
+-- Create Genre Table
+CREATE TABLE genre (
+    genre_id INT AUTO_INCREMENT PRIMARY KEY,
+    genre_name VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by INT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updated_by INT,
+    deleted_at DATETIME DEFAULT NULL,
+    deleted_by INT,
+    INDEX(created_by),
+    INDEX(updated_by),
+    INDEX(deleted_by)
+);
+
+-- Create Book Table
+CREATE TABLE book (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    isbn VARCHAR(20),
+    title VARCHAR(255),
+    description TEXT,
+    price DECIMAL(10, 2),
+    author_id INT,
+    genre_id INT,
+    image VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by INT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updated_by INT,
+    deleted_at TIMESTAMP,
+    deleted_by INT,
+    INDEX(author_id),
+    INDEX(genre_id),
+    INDEX(created_by),
+    INDEX(updated_by),
+    INDEX(deleted_by),
+    FOREIGN KEY (author_id) REFERENCES author(author_id),
+    FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
+);
+
+-- Create User Table
+CREATE TABLE user (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    lastname VARCHAR(100),
+    bio TEXT,
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    image VARCHAR(255),
+    privilege ENUM('admin', 'user') DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updated_by INT,
+    deleted_at TIMESTAMP,
+    deleted_by INT,
+    INDEX(updated_by),
+    INDEX(deleted_by)
+);
+
+-- Create Book_Collections Table
+CREATE TABLE book_collections (
+    book_id INT,
+    user_id INT,
+    PRIMARY KEY (book_id, user_id),
+    INDEX(user_id),
+    FOREIGN KEY (book_id) REFERENCES book(book_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
+-- Create Balance Table
+CREATE TABLE balance (
+    user_id INT PRIMARY KEY,
+    money DECIMAL(10, 2),
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
+-- Create Payment Table
+CREATE TABLE payment (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    book_id INT,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    money DECIMAL(10, 2),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (book_id) REFERENCES book(book_id)
+);
+
+-- Create Subscription_People Table
+CREATE TABLE subscription_people (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP,
+    deleted_by INT,
+    INDEX(deleted_by)
+);
+
+-- Create News Table
+CREATE TABLE news (
+    news_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    news_content TEXT,
+    image VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by INT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updated_by INT,
+    deleted_at TIMESTAMP,
+    deleted_by INT,
+    INDEX(created_by),
+    INDEX(updated_by),
+    INDEX(deleted_by)
+);
+
+-- Create Coupons Table
+CREATE TABLE coupons (
+    coupon_id INT AUTO_INCREMENT PRIMARY KEY,
+    coupon_code VARCHAR(50) UNIQUE,
+    amount DECIMAL(10, 2),
+    is_used BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP,
+    deleted_by INT,
+    INDEX(deleted_by)
+);
+
+-- Create User_Coupons Table
+CREATE TABLE user_coupons (
+    user_coupon_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    coupon_id INT,
+    is_used BOOLEAN DEFAULT FALSE,
+    used_at TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (coupon_id) REFERENCES coupons(coupon_id)
+);
+
+
+<?php
+$servername = "localhost"; // or your server IP address
+$username = "root"; // your MySQL username
+$password = "root"; // your MySQL password
+$database = "librarytest"; // your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Connected successfully";
+}
+
+// Perform queries, insert data, etc. here...
+
+// Close connection
+$conn->close();
+?>
