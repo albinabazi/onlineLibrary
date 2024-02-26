@@ -14,13 +14,15 @@
     <?php include('../includes/navbar.php'); ?>
 
     <section>
-        <div class="container-100" style="min-height: 80%;">
-            <div class="row m-0" style="min-height: 80%;">
+        <div class="container-100" >
+            <div class="row m-0" style="min-height: 70vh !important;">
                 <div class="col-xl-2 col-sm-12 bg-dark text-white pt-5">
-                    <button id="showHi">Show Hi</button>
-                    <button id="showCar">Show Car</button>
+                    <div class="btn-group-vertical w-100 p-3" role="group" aria-label="Vertical button group">
+                        <button id="showBooks" class="btn btn-primary mb-3 " >BOOKS</button>
+                        <button id="showCollections" class="btn btn-primary mb-3">COLLECTIONS</button>
+                    </div>
                 </div>
-                <div class="col-xl-10 col-sm-12 col-md-11 text-center">
+                <div class="col-xl-10 col-sm-12 col-md-11 text-center bg-light" >
                     <div class="section-container mt-5" id="books" style="display: block;">
                         <div id="content"></div>
                     </div>
@@ -30,31 +32,31 @@
     </section>
 
     <script>
-        $(document).ready(function(){
-            // Event listener for showing content from book/books.php
-            $("#showHi").click(function(){
-                $.ajax({
-                    url: "book/books.php", // Update the path if needed
-                    type: "GET",
-                    success: function(response) {
-                        $("#content").html(response);
-                    }
-                });
-            });
-
-            // Event listener for showing content from books.php
-            $("#showCar").click(function(){
-                $.ajax({
-                    url: "news/news.php", // Update the path if needed
-                    type: "GET",
-                    success: function(response) {
-                        $("#content").html(response);
-                    }
-                });
+    $(document).ready(function(){
+        $("#showBooks").click(function(){
+            $.ajax({
+                url: "book/books.php", 
+                type: "GET",
+                success: function(response) {
+                    $("#content").html(response);
+                }
             });
         });
+
+        $("#showCollections").click(function(){
+            $.ajax({
+                url: "book/collections.php", 
+                type: "GET",
+                success: function(response) {
+                    $("#content").html(response);
+                }
+            });
+        });
+
+        $("#showBooks").trigger("click");
+    });
     </script>
 
-    <h1>hi</h1>
+    <?php include('../includes/footer.php'); ?>
 </body>
 </html>

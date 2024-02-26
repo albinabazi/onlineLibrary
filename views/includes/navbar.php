@@ -4,21 +4,14 @@ if (!isset($_SESSION)) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../css/style.css">
         <link rel="stylesheet" href="../../css/bootstrap5.css">
-        
         <script src="../../js/index.js" defer></script>
         <script src="../../js/bootstrap5.js" defer></script>
     </head>
 
-    <body>
-        <header class="navbar navbar-expand-md navbar-dark bg-dark">
+    <header class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid m-3">
                 <a class="navbar-brand" href="#">
                     <img src="../../images/library.png" height="50px" width="50px" class="img img-fluid" alt="My Website Logo" style="border-radius: 50%" />
@@ -30,13 +23,13 @@ if (!isset($_SESSION)) {
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="book-store.html">Book Store</a>
+                            <a class="nav-link" href="../../book-store.html">Book Store</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="book-collecrion.html">Book Collection</a>
+                            <a class="nav-link" href="../../book-collecrion.html">Book Collection</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about-us.html">About Us</a>
+                            <a class="nav-link" href="../../about-us.html">About Us</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
@@ -46,13 +39,11 @@ if (!isset($_SESSION)) {
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profili </a></li>
-                                <li><a class="dropdown-item" href="login.html">Log In </a></li>
-                                <li><a class="dropdown-item" href="register.html">Register </a></li>
+                                <li><a class="dropdown-item" href="../../login.html">Log In </a></li>
+                                <li><a class="dropdown-item" href="../../register.html">Register </a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-        </header>
-    </body>
-</html>
+    </header>
