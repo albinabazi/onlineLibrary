@@ -9,6 +9,10 @@ if (!isset($_SESSION)) {
         <link rel="stylesheet" href="../../css/bootstrap5.css">
         <script src="../../js/index.js" defer></script>
         <script src="../../js/bootstrap5.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <script src="https://kit.fontawesome.com/0d0f37752c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+63DO7Ipvb2+Qy8dVdKTAov/bipRFNYU5lVLvMyvS+J2MCl" crossorigin="anonymous">
+
     </head>
 
     <header class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -30,6 +34,12 @@ if (!isset($_SESSION)) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../../about-us.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/contact-us.php">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../services/services.php">Services</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
