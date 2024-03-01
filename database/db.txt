@@ -155,8 +155,27 @@ CREATE TABLE user_coupons (
     FOREIGN KEY (coupon_id) REFERENCES coupons(coupon_id)
 );
 
+-- Create contact_messages Table
+CREATE TABLE contact_messages (
+    message_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    lastname VARCHAR(100),
+    email VARCHAR(255),
+    message TEXT,
+    replied BOOLEAN DEFAULT FALSE, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
--- Insert data into User Table
+
+-- Create Contact_messages Table
+INSERT INTO contact_messages (name, lastname, email, message)
+VALUES 
+('FilanFisteku1', 'FilanFisteku2', 'michael@example.com', 'Book enthusiast and avid reader.'),
+('Emily', 'Davis','emily@example.com', 'Lover of literature and aspiring writer.'),
+('Daniel', 'Wilson', 'daniel@example.com', 'Bookworm and collector of rare editions.'),
+('John', 'Doe', 'john@example.com', " ... ");
+
+-- Insert data into Users Table
 INSERT INTO users (name, lastname, bio, email, password, image, updated_by)
 VALUES 
 ('Michael', 'Brown', 'Book enthusiast and avid reader.', 'michael@example.com', 'password123', 'michael_brown.jpg', 1),
@@ -165,8 +184,8 @@ VALUES
 ('John', 'Doe', NULL, 'john@example.com', 'password', 'john_doe.jpg', 1),
 ('Alice', 'Smith', NULL, 'alice@example.com', 'password', 'alice_smith.jpg', 1),
 ('Michael', 'Brown', NULL, 'michael2@example.com', 'password', 'michael_brown.jpg', 1),
-('Emily', 'Johnson', NULL, 'emily@example.com', 'password', 'emily_johnson.jpg', 1),
-('David', 'Williams', NULL, 'david@example.com', 'password', 'david_williams.jpg', 1);
+('Emily', 'Johnson', NULL, 'emily2@example.com', 'password', 'emily_johnson.jpg', 1),
+('David', 'Williams', NULL, 'david2@example.com', 'password', 'david_williams.jpg', 1);
 
 -- Insert data into Author Table
 INSERT INTO author (first_name, last_name, birth_year, death_year, bio, image, created_by, updated_by)

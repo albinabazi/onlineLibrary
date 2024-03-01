@@ -20,6 +20,7 @@
                     <div class="btn-group-vertical w-100 p-3" role="group" aria-label="Vertical button group">
                         <button id="showBooks" class="btn btn-primary mb-3 " >BOOKS</button>
                         <button id="showCollections" class="btn btn-primary mb-3">COLLECTIONS</button>
+                        <button id="showContacts" class="btn btn-primary mb-3 ">CONTACT MESSAGES</button>
                     </div>
                 </div>
                 <div class="col-xl-10 col-sm-12 col-md-11 text-center bg-light" >
@@ -46,6 +47,16 @@
         $("#showCollections").click(function(){
             $.ajax({
                 url: "book/collections.php", 
+                type: "GET",
+                success: function(response) {
+                    $("#content").html(response);
+                }
+            });
+        });
+
+        $("#showContacts").click(function(){
+            $.ajax({
+                url: "forms/contact-messages.php", 
                 type: "GET",
                 success: function(response) {
                     $("#content").html(response);
